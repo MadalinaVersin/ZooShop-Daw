@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "Animals";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (ViewBag.Animals != null)
+{
+    foreach (var animal in ViewBag.Animals)
+    {
+        <div class="panel panel-default">
+            <div class="panel-body">
+                @Html.Label("Name", "Name: ")
+                <br />
+                <p>@animal.Name</p>
+                <br />
+                <br />
+                <img src="~/Content/Images/SiamezaBibi.jpg" alt="Sample Image" width="200px" />
+                <br />
+
+                @Html.Label("Breed", "Breed : ")
+                <br />
+                <p>@animal.Breed.BreedName</p>
+                @using (Html.BeginForm(actionName: "Details", controllerName: "Animal", method: FormMethod.Get, routeValues: new { id = animal.AnimalId }))
+                {
+                    <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Details</button>
+                }
+            </div>
+        </div>
+    }
+}
+
+
+<br />
+@Html.ActionLink("Add animal", "New")

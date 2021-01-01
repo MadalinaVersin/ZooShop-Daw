@@ -1,0 +1,75 @@
+﻿@model ZooShop.Models.Animal
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm(actionName: "New", controllerName: "Animal", method: FormMethod.Post))
+{
+    @Html.Label("Name", "AnimalName: ")
+    <br />
+    @Html.TextBoxFor(a => a.Name, null, new
+    {
+        placeholder = "Type in the animal's name",
+        @class = "form-control"
+    })
+
+    @Html.ValidationMessageFor(a => a.Name, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Gender", "Gender:")
+    <br />
+
+    @Html.TextBoxFor(a => a.Gender, null, new
+    {
+        placeholder = "Type in the animal's gender",
+        @class = "form-control"
+    })
+
+    @Html.ValidationMessageFor(a => a.Gender, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Price", "Price:")
+    <br />
+
+    @Html.TextBoxFor(a => a.Price, null, new
+    {
+        placeholder = "Type in the animal's price",
+        @class = "form-control"
+    })
+
+    @Html.ValidationMessageFor(a => a.Price, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Details", "Details:")
+    <br />
+
+    @Html.TextArea("Details", null, new
+    {
+        placeholder = "Type in the book's summary",
+        @class = "form-control",
+        @rows = "10"
+    })
+
+    @Html.ValidationMessageFor(a => a.Details, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("Breed", "Breed:")
+    <br />
+    @Html.DropDownListFor(a => a.BreedId, new SelectList(Model.BreedList, "Value", "Text"), "Choose a breed", new { @class = "form-control" })
+    @Html.ValidationMessageFor(a => a.BreedId, "", new { @class = " text-danger" })
+    <br />
+    <br />
+    @Html.LabelFor(a => a.VaccineList, "Choose vaccines:")
+    <br />
+    for (int i = 0; i < Model.VaccineList.Count(); i++)
+    {
+        @Html.HiddenFor(b => b.VaccineList[i].Id)
+        @Html.HiddenFor(b => b.VaccineList[i].Name)
+        @Html.CheckBoxFor(b => b.VaccineList[i].Checked)
+        @Html.DisplayFor(b => b.VaccineList[i].Name)
+        <br />
+    }
+    <br />
+    <button class="btn btn-primary" type="submit">Create</button>
+}
+
+

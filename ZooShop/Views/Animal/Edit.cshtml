@@ -1,0 +1,60 @@
+﻿@model ZooShop.Models.Animal
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm(actionName: "Edit", controllerName: "Animal"))
+{
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+
+    @Html.HiddenFor(a => a.AnimalId)
+    <br />
+    <br />
+
+    @Html.Label("Name", "Name: ")
+    <br />
+    @Html.EditorFor(a => a.Name, new { htmlAttributes = new { @calss = "form-control" } })
+    @Html.ValidationMessageFor(a => a.Name, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("Gender", "Gender: ")
+    <br />
+    @Html.EditorFor(a => a.Gender, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(a => a.Gender, "", new { @class = " text-danger" })
+    <br />
+    <br />
+    @Html.Label("Price", "Price: ")
+    <br />
+    @Html.EditorFor(a => a.Price, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(a => a.Price, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("Details", "Details: ")
+    <br />
+    @Html.TextAreaFor(a => a.Details, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(a => a.Details, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("Breed", "Breed: ")
+    <br />
+    @Html.DropDownListFor(a => a.BreedId, new SelectList(Model.BreedList, "Value", "Text"), "Choose a breed", new { @class = "form-control" })
+    @Html.ValidationMessageFor(a => a.BreedId, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.LabelFor(a => a.VaccineList, "Choose vaccines:")
+    <br />
+    for (int i = 0; i < Model.VaccineList.Count(); i++)
+    {
+        @Html.HiddenFor(b => b.VaccineList[i].Id)
+        @Html.HiddenFor(b => b.VaccineList[i].Name)
+        @Html.CheckBoxFor(b => b.VaccineList[i].Checked)
+        @Html.DisplayFor(b => b.VaccineList[i].Name)
+        <br />
+    }
+    <br />
+
+    <button class="btn btn-primary" type="submit">Update</button>
+}
+
