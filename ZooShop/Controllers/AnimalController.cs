@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -47,11 +48,18 @@ namespace ZooShop.Controllers
             animalRequest.BreedList = GetAllBreeds();
 
             var selectedVaccines = animalRequest.VaccineList.Where(b => b.Checked).ToList();
-
             try
             {
                 if (ModelState.IsValid)
                 {
+                    //Salvam imaginea cu animalul
+                    string fileName = Path.GetFileNameWithoutExtension(animalRequest.ImageFile.FileName);
+                    string extension = Path.GetExtension(animalRequest.ImageFile.FileName);
+                    fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+                    animalRequest.ImagePath = "~/Images/" + fileName;
+                    fileName = Path.Combine(Server.MapPath("~/Images/"), fileName);
+                    animalRequest.ImageFile.SaveAs(fileName);
+
                     animalRequest.Vaccines = new List<Vaccine>();
                     for (int i = 0; i < selectedVaccines.Count(); i++)
                     {

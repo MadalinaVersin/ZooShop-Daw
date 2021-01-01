@@ -1,0 +1,18 @@
+﻿@model ZooShop.Models.Breed
+@{
+    ViewBag.Title = "Create a breed.";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm(actionName: "New", controllerName: "Breed", method: FormMethod.Post))
+{
+    @Html.LabelFor(b => b.BreedName, "Breed Name: ")
+    <br />
+    @Html.TextBoxFor(b => b.BreedName, null, new { placeholder = "Type in the breed's name", @class = "form-control" })
+    @Html.ValidationMessageFor(b => b.BreedName, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <button class="btn btn-primary" type="submit">Create</button>
+}
+

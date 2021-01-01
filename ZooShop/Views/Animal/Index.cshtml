@@ -15,8 +15,7 @@
                 <br />
                 <p>@animal.Name</p>
                 <br />
-                <br />
-                <img src="~/Content/Images/SiamezaBibi.jpg" alt="Sample Image" width="200px" />
+                <img src="@Url.Content(animal.ImagePath)" alt="Sample Image" width="250px" height="250" />
                 <br />
 
                 @Html.Label("Breed", "Breed : ")

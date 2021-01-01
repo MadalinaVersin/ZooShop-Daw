@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -22,6 +23,13 @@ namespace ZooShop.Models
         [MinLength(0, ErrorMessage = "Summary cannot be less than 0!"),
         MaxLength(5000, ErrorMessage = "Summary cannot be more than 5000!")]
         public string Details { get; set; }
+
+        //Image
+        [DisplayName("Upload File")]
+        public string ImagePath { get; set; }
+
+        [NotMapped]
+        public HttpPostedFileBase ImageFile { get; set; }
 
         //one-to-many relationship
         public int BreedId { get; set; }

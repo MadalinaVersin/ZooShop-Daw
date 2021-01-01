@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "Vaccines";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@foreach (var vaccine in ViewBag.Vaccines)
+{
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <br />
+            @Html.Label("Name", "Name:")
+            <br />
+            <p>@vaccine.Name</p>
+            @Html.Label("Price", "Price:")
+            <br />
+            <p>@vaccine.Price Lei</p>
+            <br />
+            @using (Html.BeginForm(actionName: "Edit", controllerName: "Vaccine", method: FormMethod.Get, routeValues: new { id = vaccine.VaccineId }))
+            {
+                <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Update</button>
+            }
+            @using (Html.BeginForm(actionName: "Delete", controllerName: "Vaccine", method: FormMethod.Post, routeValues: new { id = vaccine.VaccineId }))
+            {
+                @Html.HttpMethodOverride(HttpVerbs.Delete)
+                <button class="btn btn-primary col-lg-1" type="submit">Delete</button>
+            }
+            <br />
+        </div>
+
+    </div>
+}
+<br />
+@Html.ActionLink("Add vaccine ", "New")

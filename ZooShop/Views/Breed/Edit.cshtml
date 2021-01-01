@@ -1,0 +1,20 @@
+﻿@model  ZooShop.Models.Breed
+@{
+    ViewBag.Title = "Update Breed";
+}
+
+<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm(actionName: "Edit", controllerName: "Breed", method: FormMethod.Post))
+{
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+    @Html.HiddenFor(b => b.BreedId)
+
+    @Html.LabelFor(b => b.BreedName, "Bred Name")
+    <br />
+    @Html.EditorFor(b => b.BreedName, new { htmlAtributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(b => b.BreedName, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <button class="btn btn-primary" type="submit">Update</button>
+}
+

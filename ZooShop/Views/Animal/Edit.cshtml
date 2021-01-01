@@ -5,7 +5,7 @@
 
 <h2>@ViewBag.Title</h2>
 
-@using (Html.BeginForm(actionName: "Edit", controllerName: "Animal"))
+@using (Html.BeginForm("Edit", "Animal", new { enctype = "multipart/form-data" }))
 {
     @Html.HttpMethodOverride(HttpVerbs.Put)
 
