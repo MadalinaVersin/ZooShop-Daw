@@ -109,3 +109,4 @@ C:\Users\Madalina Versin\Desktop\Project-Daw\ZooShop\ZooShop\obj\Debug\ZooShop.p
 C:\Users\Madalina Versin\Desktop\Project-Daw\ZooShop\ZooShop\obj\Debug\ZooShop.Migrations.AddAnimalBreedVaccine.resources
 C:\Users\Madalina Versin\Desktop\Project-Daw\ZooShop\ZooShop\obj\Debug\ZooShop.csproj.GenerateResource.cache
 C:\Users\Madalina Versin\Desktop\Project-Daw\ZooShop\ZooShop\obj\Debug\ZooShop.Migrations.AddImageToAnimal.resources
+C:\Users\Madalina Versin\Desktop\Project-Daw\ZooShop\ZooShop\obj\Debug\ZooShop.Migrations.AddProductDistributorContactInfo.resources

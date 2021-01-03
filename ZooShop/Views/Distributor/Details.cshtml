@@ -1,0 +1,29 @@
+﻿@model ZooShop.Models.Distributor
+
+<h2>@Model.DistributorName</h2>
+
+<table>
+    <tbody>
+        <tr>
+            <td>@Html.LabelFor(d => d.ContactInfo.PhoneNumber, "Phone number:", new { style = "margin-right:10px" })</td>
+            <td>@Html.DisplayFor(d => d.ContactInfo.PhoneNumber)</td>
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(p => p.ContactInfo.Email, "Email:", new { style = "margin-right:10px" })</td>
+            <td>@Html.DisplayFor(p => p.ContactInfo.Email)</td>
+        </tr>
+    </tbody>
+</table>
+<br />
+<br />
+@using (Html.BeginForm(actionName: "Edit", controllerName: "Distributor", method: FormMethod.Get, routeValues: new { id = Model.DistributorId }))
+{
+    <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Update</button>
+}
+
+@using (Html.BeginForm(actionName: "Delete", controllerName: "Distributor", method: FormMethod.Post, routeValues: new { id = Model.DistributorId }))
+{
+    @Html.HttpMethodOverride(HttpVerbs.Delete)
+    <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Delete</button>
+}
+

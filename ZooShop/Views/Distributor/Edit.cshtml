@@ -1,0 +1,32 @@
+﻿@model ZooShop.Models.Distributor
+@{
+    ViewBag.Title = "Edit Distributor";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm(actionName: "Edit", controllerName: "Distributor", method: FormMethod.Post))
+{
+            @Html.HttpMethodOverride(HttpVerbs.Put)
+
+    @Html.HiddenFor(d => d.DistributorId)
+    @Html.HiddenFor(d => d.ContactInfo)
+    <br />
+    @Html.Label("DistributorName", "DistributorName: ")
+    <br />
+    @Html.EditorFor(d => d.DistributorName, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(d => d.DistributorName, "", new { @class = "text-danger" })
+    <br />
+    @Html.LabelFor(d => d.ContactInfo.PhoneNumber, "PhoneNumber: ")
+    <br />
+    @Html.EditorFor(d => d.ContactInfo.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(d => d.ContactInfo.PhoneNumber, "", new { @class = "text-danger" })
+    <br />
+    @Html.LabelFor(d => d.ContactInfo.Email, "Email: ")
+    <br />
+    @Html.EditorFor(d => d.ContactInfo.Email, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(d => d.ContactInfo.Email, "", new { @class = "text-danger" })
+    <br />
+    <button class="btn btn-primary" type="submit">Update</button>
+
+}

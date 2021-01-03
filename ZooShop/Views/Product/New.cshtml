@@ -1,0 +1,40 @@
+﻿@model ZooShop.Models.Product
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>@ViewBag.Title</h2>
+@using (Html.BeginForm("New", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.Label("Name", "Name:")
+    <br />
+    @Html.TextBoxFor(p => p.Name, null, new { placeholder = "Type in the product's name", @class = " form-control" })
+    @Html.ValidationMessageFor(p => p.Name, "", new { @class = "text-danger" })
+    <br />
+
+    @Html.Label("Price", "Price:")
+    <br />
+    @Html.TextBoxFor(p => p.Price, null, new { placeholder = "Type in the product's price", @class = "form-control" })
+    @Html.ValidationMessageFor(p => p.Price, "", new { @class = "text-danger" })
+    <br />
+
+    @Html.Label("Details", "Details:")
+    <br />
+    @Html.TextArea("Details", null, new { placeholder = "Type in the product's details", @class = "form-control", @rows = "10" })
+    @Html.ValidationMessageFor(p => p.Details, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Distributor", "Distributor:")
+    <br />
+    @Html.DropDownListFor(p => p.DistributorId, new SelectList(Model.DistributorList, "Value", "Text"), "Choose a distributor", new { @class = "form-control" })
+    @Html.ValidationMessageFor(p => p.DistributorId, "", new { @class = " text-danger" })
+    <br />
+    <div class="form-group">
+        @Html.LabelFor(p => p.ImagePath, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            <input type="file" name="ImageFile" required />
+        </div>
+    </div>
+    <br />
+    <button class="btn btn-primary" type="submit">Create</button>
+
+}

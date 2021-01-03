@@ -29,6 +29,11 @@ namespace ZooShop.Models
 
         public DbSet<Vaccine> Vaccines { get; set; }
 
+        public DbSet<Product> Products { get; set; }
+
+        public DbSet<Distributor> Distributors {get; set;}
+
+        public DbSet<ContactInfo> ContactInfos { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

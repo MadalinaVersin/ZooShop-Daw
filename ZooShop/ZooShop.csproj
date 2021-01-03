@@ -170,8 +170,11 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AnimalController.cs" />
     <Compile Include="Controllers\BreedController.cs" />
+    <Compile Include="Controllers\ContactInfoController.cs" />
+    <Compile Include="Controllers\DistributorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\VaccineController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -184,13 +187,21 @@
     <Compile Include="Migrations\202101012001299_AddImageToAnimal.Designer.cs">
       <DependentUpon>202101012001299_AddImageToAnimal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101021154126_AddProductDistributorContactInfo.cs" />
+    <Compile Include="Migrations\202101021154126_AddProductDistributorContactInfo.Designer.cs">
+      <DependentUpon>202101021154126_AddProductDistributorContactInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Animal.cs" />
     <Compile Include="Models\Breed.cs" />
     <Compile Include="Models\CheckBoxViewModel.cs" />
+    <Compile Include="Models\ContactInfo.cs" />
+    <Compile Include="Models\Distributor.cs" />
+    <Compile Include="Models\DistributorContactInfoViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Vaccine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -262,6 +273,15 @@
     <Content Include="Views\Vaccine\Index.cshtml" />
     <Content Include="Views\Vaccine\New.cshtml" />
     <Content Include="Views\Vaccine\Edit.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Product\Details.cshtml" />
+    <Content Include="Views\Product\New.cshtml" />
+    <Content Include="Views\ContactInfo\New.cshtml" />
+    <Content Include="Views\Distributor\Index.cshtml" />
+    <Content Include="Views\Distributor\New.cshtml" />
+    <Content Include="Views\Distributor\Details.cshtml" />
+    <Content Include="Views\Distributor\Edit.cshtml" />
+    <Content Include="Views\Product\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -286,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101012001299_AddImageToAnimal.resx">
       <DependentUpon>202101012001299_AddImageToAnimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101021154126_AddProductDistributorContactInfo.resx">
+      <DependentUpon>202101021154126_AddProductDistributorContactInfo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

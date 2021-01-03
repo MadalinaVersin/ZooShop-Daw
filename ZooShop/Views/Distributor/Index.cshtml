@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Distributors";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<table class="table">
+    <thead>
+    <th>Name</th>
+    <th>Phone Number</th>
+    <th>Update</th>
+    <th>Details</th>
+    </thead>
+    <tbody>
+        @foreach (var distributor in ViewBag.Distributors)
+        {
+            <tr>
+                <td>@distributor.DistributorName</td>
+                <td>@distributor.ContactInfo.PhoneNumber</td>
+                <td>@Html.ActionLink("Update", "Edit", new { id = distributor.DistributorId })</td>
+                <td>@Html.ActionLink("View More", "Details", new { id = distributor.DistributorId })</td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.ActionLink("Add distributor", "New")

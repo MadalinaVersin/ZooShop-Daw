@@ -1,0 +1,37 @@
+﻿@model ZooShop.Models.Product
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm(actionName: "Edit", controllerName: "Product"))
+{
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+
+    @Html.HiddenFor(p => p.ProductId)
+    <br />
+
+    @Html.Label("Name", "Name:")
+    <br />
+    @Html.EditorFor(p => p.Name, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(p => p.Name, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Price", "Price:")
+    <br />
+    @Html.Editor("Price", new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(p => p.Price, "", new { @class = "text-danger" })
+    <br />
+    @Html.Label("Details", "Details:")
+    <br />
+    @Html.TextAreaFor(p => p.Details, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(p => p.Details, "", new { @class = "danger-text" })
+    <br />
+    @Html.Label("Distributor", "Distributor:")
+    <br />
+    @Html.DropDownListFor(p => p.DistributorId, new SelectList(Model.DistributorList, "Value", "Text"), "Choose a distributor", new { @class = "form-control" })
+    @Html.ValidationMessageFor(p => p.DistributorId, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <button class="btn btn-primary" type="submit">Update</button>
+}

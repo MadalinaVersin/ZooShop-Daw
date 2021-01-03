@@ -1,0 +1,49 @@
+﻿@model ZooShop.Models.Product
+@{
+    ViewBag.Title = "Details";
+    var emptyDetails = "This product has no details.";
+}
+
+<h2>@ViewBag.Title</h2>
+@Html.Label("Name", "Name: ")
+<br />
+<p>@Model.Name</p>
+<br />
+<img src="@Url.Content(Model.ImagePath)" alt="Sample Image" width="250px" height="250" />
+<br />
+@Html.Label("Price", "Price: ")
+<br />
+<p>@Model.Price Lei</p>
+<br />
+@Html.Label("Details", "Details: ")
+<br />
+<div class="panel-body">
+    @if (Model.Details.IsEmpty())
+    {
+        <p>@emptyDetails</p>
+    }
+    else
+    {
+        @Html.DisplayFor(b => b.Details)
+    }
+</div>
+<br />
+@if (Model.Distributor != null)
+{
+    @Html.Label("DistributorName", "DistributorName: ")
+    <br />
+    <p>@Model.Distributor.DistributorName</p>
+}
+@using (Html.BeginForm(actionName: "Edit", controllerName: "Product", method: FormMethod.Get, routeValues: new { id = Model.ProductId }))
+{
+    <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Update</button>
+
+}
+@using (Html.BeginForm(actionName: "Delete", controllerName: "Product", method: FormMethod.Post, routeValues: new { id = Model.ProductId }))
+{
+    @Html.HttpMethodOverride(HttpVerbs.Delete)
+    <button class="btn btn-primary col-lg-1" type="submit">Delete</button>
+}
+<br />
+
+

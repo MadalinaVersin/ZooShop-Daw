@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "Products";
+}
+
+<h2>@ViewBag.Tite</h2>
+@foreach (var product in ViewBag.Products)
+{
+    <div class="panel panel-default">
+        <div class=" panel-body">
+            @Html.Label("Name", "Product:")
+            <br />
+            <p>@product.Name</p>
+            <br />
+            <img src="@Url.Content(product.ImagePath)" alt="Sample Image" width="250px" height="250" />
+            <br />
+            @Html.Label("Price", "Price: ")
+            <br />
+            <p>@product.Price Lei</p>
+            <br />
+            @using (Html.BeginForm(actionName: "Details", controllerName: "Product", method: FormMethod.Get, routeValues: new { id = product.ProductId }))
+            {
+                <button class="btn btn-primary">Details</button>
+            }
+
+        </div>
+    </div>
+}
+@Html.ActionLink("Add product", "New")

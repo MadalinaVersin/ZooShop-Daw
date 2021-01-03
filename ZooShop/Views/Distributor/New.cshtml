@@ -1,0 +1,30 @@
+﻿@model  ZooShop.Models.DistributorContactInfoViewModel
+@{
+    ViewBag.Title = "Create Distributor";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm(actionName: "New", controllerName: "Distributor", method: FormMethod.Post))
+{
+    @Html.Label("DistributorName", "DistributorName:")
+    <br />
+    @Html.TextBoxFor(d => d.DistributorName, null, new { placeholder = "Type in the distributor's name", @class = "form-control" })
+    @Html.ValidationMessageFor(d => d.DistributorName, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.LabelFor(d => d.PhoneNumber, "Phone Number")
+    <br />
+    @Html.TextBoxFor(d => d.PhoneNumber, null, new { placeholder = "Type in the distributor's phone number", @class = "form-control" })
+    @Html.ValidationMessageFor(d => d.PhoneNumber, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    @Html.Label("Email", "Email")
+    <br />
+    @Html.TextBoxFor(d => d.Email, null, new { placeholder = "Type in the distributor's email.", @class = "form-control" })
+    @Html.ValidationMessageFor(d => d.Email, "", new { @class = "text-danger" })
+    <br />
+    <br />
+    <button class="btn btn-primary" type="submit">Create</button>
+
+}
