@@ -19,6 +19,7 @@ namespace ZooShop.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpGet]
         public ActionResult Details(int? id)
         {
@@ -34,6 +35,8 @@ namespace ZooShop.Controllers
             return HttpNotFound("Missing distributor id parameter!");
 
         }
+
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult New()
         {
@@ -71,6 +74,7 @@ namespace ZooShop.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult Edit(int? id)
         {
@@ -117,6 +121,7 @@ namespace ZooShop.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete]
         public ActionResult Delete(int id)
         {

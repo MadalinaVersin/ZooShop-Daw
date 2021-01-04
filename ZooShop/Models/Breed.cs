@@ -10,6 +10,8 @@ namespace ZooShop.Models
     {
 
         public int BreedId { get; set; }
+
+       
         [MinLength(2, ErrorMessage = "Breed name cannot be less than 2!"),
         MaxLength(30, ErrorMessage = "Breed name cannot be more than 30!")]
         public string BreedName { get; set; }

@@ -80,7 +80,7 @@ namespace ZooShop.Controllers
             }
         }
 
-        [Authorize(Roles = "Admin")]
+       
         [HttpGet]
         public ActionResult Edit(int? id)
         {

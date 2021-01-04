@@ -15,13 +15,18 @@
 {
     <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Back</button>
 }
-@using (Html.BeginForm(actionName: "Edit", controllerName: "ContactInfo", method: FormMethod.Get, routeValues: new { id = Model.ContactInfoId}))
+
+@if (User.IsInRole("Admin"))
 {
-    <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Update</button>
+    using (Html.BeginForm(actionName: "Edit", controllerName: "ContactInfo", method: FormMethod.Get, routeValues: new { id = Model.ContactInfoId }))
+    {
+        <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Update</button>
+    }
+    using (Html.BeginForm(actionName: "Delete", controllerName: "ContactInfo", method: FormMethod.Post, routeValues: new { id = Model.ContactInfoId }))
+    {
+        @Html.HttpMethodOverride(HttpVerbs.Delete)
+        <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Delete</button>
+    }
 }
-@using (Html.BeginForm(actionName: "Delete", controllerName: "ContactInfo", method: FormMethod.Post, routeValues: new { id = Model.ContactInfoId }))
-{
-    @Html.HttpMethodOverride(HttpVerbs.Delete)
-    <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Delete</button>
-}
+
 

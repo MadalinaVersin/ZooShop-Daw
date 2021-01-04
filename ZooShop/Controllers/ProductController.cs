@@ -18,6 +18,7 @@ namespace ZooShop.Controllers
             ViewBag.Products = products;
             return View();
         }
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id.HasValue)
@@ -31,6 +32,8 @@ namespace ZooShop.Controllers
             }
             return HttpNotFound("Missing product id parameter!");
         }
+
+
         [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult New()
@@ -69,6 +72,7 @@ namespace ZooShop.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult Edit(int? id)
         {
@@ -116,6 +120,7 @@ namespace ZooShop.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete]
         public ActionResult Delete(int id)
         {

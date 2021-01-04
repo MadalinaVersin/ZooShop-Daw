@@ -13,6 +13,7 @@ namespace ZooShop.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
         // GET: ContactInfo
 
+        [Authorize]
         [HttpGet]
         public ActionResult Index(int? id)
         {
@@ -20,6 +21,7 @@ namespace ZooShop.Controllers
             return View(contactInfo);
         }
 
+        [Authorize(Roles ="Admin")]
         [HttpGet]
         public ActionResult New()
         {
@@ -27,6 +29,7 @@ namespace ZooShop.Controllers
             return View(contact);
 
         }
+
         [HttpPost]
         public ActionResult New(ContactInfo contactRequest)
         {
@@ -47,6 +50,7 @@ namespace ZooShop.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult Edit(int? id)
         {
@@ -87,6 +91,7 @@ namespace ZooShop.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete]
         public ActionResult Delete(int? id)
         {

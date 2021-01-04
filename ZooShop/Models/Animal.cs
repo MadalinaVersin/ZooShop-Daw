@@ -14,12 +14,16 @@ namespace ZooShop.Models
     {
         public int AnimalId { get; set; }
 
+        
         [MinLength(2, ErrorMessage = "Name cannot be less than 2!"),
            MaxLength(200, ErrorMessage = "Name cannot be more than 200!")]
         public string Name { get; set; }
+
+        
         [GenderValidator]
         public string Gender { get; set; }
 
+        
         [Range(0, int.MaxValue, ErrorMessage = "Please enter valid positive number!")]
         public int Price { get; set; }
 

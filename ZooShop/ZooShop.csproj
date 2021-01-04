@@ -192,6 +192,10 @@
     <Compile Include="Migrations\202101021154126_AddProductDistributorContactInfo.Designer.cs">
       <DependentUpon>202101021154126_AddProductDistributorContactInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101041334495_DeleteReq.cs" />
+    <Compile Include="Migrations\202101041334495_DeleteReq.Designer.cs">
+      <DependentUpon>202101041334495_DeleteReq.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Animal.cs" />
@@ -321,6 +325,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101021154126_AddProductDistributorContactInfo.resx">
       <DependentUpon>202101021154126_AddProductDistributorContactInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101041334495_DeleteReq.resx">
+      <DependentUpon>202101041334495_DeleteReq.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

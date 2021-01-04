@@ -8,26 +8,52 @@
 <table class="table">
     <thead>
     <th>Name</th>
-    <th>Phone Number</th>
-    <th>Update</th>
-    <th>Details</th>
+    <th>Email</th>
+    @if (User.IsInRole("Admin"))
+    {
+        <th>Update</th>
+        <th>Details</th>
+    }
     </thead>
     <tbody>
         @foreach (var distributor in ViewBag.Distributors)
         {
             <tr>
                 <td>@distributor.DistributorName</td>
-                <td>@distributor.ContactInfo.PhoneNumber</td>
-                <td>@Html.ActionLink("Update", "Edit", new { id = distributor.DistributorId })</td>
-                <td>@Html.ActionLink("ContactInfo", "Index", "ContactInfo", new { id = distributor.DistributorId }, null)</td>
+                <td>@distributor.ContactInfo.Email</td>
                 <td>
-                    @using (Html.BeginForm(actionName: "Delete", controllerName: "Distributor", method: FormMethod.Post, routeValues: new { id = distributor.DistributorId }))
+                    @if (User.IsInRole("Admin"))
                     {
-                        @Html.HttpMethodOverride(HttpVerbs.Delete)
-                        <button style="margin-right:5px" class="btn btn-primary col-lg-4" type="submit">Delete</button>
+                        @Html.ActionLink("Update", "Edit", new { id = distributor.DistributorId })
+                    }
+                </td>
+                <td>
+                    @if (User.IsInRole("Admin") || User.IsInRole("User"))
+                    {
+                        @Html.ActionLink("ContactInfo", "Index", "ContactInfo", new { id = distributor.DistributorId }, null)}
+                </td>
+                <td>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        using (Html.BeginForm(actionName: "Delete", controllerName: "Distributor", method: FormMethod.Post, routeValues: new { id = distributor.DistributorId }))
+                        {
+                            @Html.HttpMethodOverride(HttpVerbs.Delete)
+                            <button style="margin-right:5px" class="btn btn-primary col-lg-4" type="submit">Delete</button>
+                        }
                     }
                 </td>
             </tr>
         }
     </tbody>
 </table>
+<br />
+@if (User.IsInRole("Admin"))
+{
+    @Html.ActionLink("Add Distributor", "New")
+}
+<br />
+<br />
+@using (Html.BeginForm(actionName: "Index", controllerName: "Home", method: FormMethod.Get))
+{
+    <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Back</button>
+}

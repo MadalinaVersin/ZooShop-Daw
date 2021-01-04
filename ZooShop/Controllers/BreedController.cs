@@ -16,6 +16,9 @@ namespace ZooShop.Controllers
             ViewBag.Breeds = db.Breeds.ToList();
             return View();
         }
+
+
+        [Authorize(Roles ="Admin")]
         [HttpGet]
         public ActionResult New()
         {
@@ -42,6 +45,7 @@ namespace ZooShop.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id.HasValue)
@@ -79,6 +83,7 @@ namespace ZooShop.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpDelete]
         public ActionResult Delete(int? id)
         {

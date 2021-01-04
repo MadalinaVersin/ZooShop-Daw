@@ -17,14 +17,17 @@
             <br />
             <p>@vaccine.Price Lei</p>
             <br />
-            @using (Html.BeginForm(actionName: "Edit", controllerName: "Vaccine", method: FormMethod.Get, routeValues: new { id = vaccine.VaccineId }))
+            @if (User.IsInRole("Admin"))
             {
-                <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Update</button>
-            }
-            @using (Html.BeginForm(actionName: "Delete", controllerName: "Vaccine", method: FormMethod.Post, routeValues: new { id = vaccine.VaccineId }))
-            {
-                @Html.HttpMethodOverride(HttpVerbs.Delete)
-                <button class="btn btn-primary col-lg-1" type="submit">Delete</button>
+                using (Html.BeginForm(actionName: "Edit", controllerName: "Vaccine", method: FormMethod.Get, routeValues: new { id = vaccine.VaccineId }))
+                {
+                    <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Update</button>
+                }
+                using (Html.BeginForm(actionName: "Delete", controllerName: "Vaccine", method: FormMethod.Post, routeValues: new { id = vaccine.VaccineId }))
+                {
+                    @Html.HttpMethodOverride(HttpVerbs.Delete)
+                    <button class="btn btn-primary col-lg-1" type="submit">Delete</button>
+                }
             }
             <br />
         </div>
@@ -32,4 +35,13 @@
     </div>
 }
 <br />
-@Html.ActionLink("Add vaccine ", "New")
+@if (User.IsInRole("Admin"))
+{
+    @Html.ActionLink("Add vaccine ", "New")
+}
+<br />
+<br />
+@using (Html.BeginForm(actionName: "Index", controllerName: "Home", method: FormMethod.Get))
+{
+    <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Back</button>
+}

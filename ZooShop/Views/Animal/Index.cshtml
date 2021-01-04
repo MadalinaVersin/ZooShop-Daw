@@ -21,13 +21,11 @@
                 @Html.Label("Breed", "Breed : ")
                 <br />
                 <p>@animal.Breed.BreedName</p>
-                @if (User.IsInRole("User") || User.IsInRole("Admin"))
+                @using (Html.BeginForm(actionName: "Details", controllerName: "Animal", method: FormMethod.Get, routeValues: new { id = animal.AnimalId }))
                 {
-                    using (Html.BeginForm(actionName: "Details", controllerName: "Animal", method: FormMethod.Get, routeValues: new { id = animal.AnimalId }))
-                    {
-                        <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Details</button>
-                    }
+                    <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Details</button>
                 }
+
             </div>
         </div>
     }
@@ -37,4 +35,10 @@
 {
     <br />
     @Html.ActionLink("Add animal", "New")
+}
+<br />
+<br />
+@using (Html.BeginForm(actionName: "Index", controllerName: "Home", method: FormMethod.Get))
+{
+    <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Back</button>
 }

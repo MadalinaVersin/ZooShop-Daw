@@ -34,16 +34,25 @@
     <br />
     <p>@Model.Distributor.DistributorName</p>
 }
-@using (Html.BeginForm(actionName: "Edit", controllerName: "Product", method: FormMethod.Get, routeValues: new { id = Model.ProductId }))
-{
-    <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Update</button>
 
-}
-@using (Html.BeginForm(actionName: "Delete", controllerName: "Product", method: FormMethod.Post, routeValues: new { id = Model.ProductId }))
+@if (User.IsInRole("Admin"))
 {
-    @Html.HttpMethodOverride(HttpVerbs.Delete)
-    <button class="btn btn-primary col-lg-1" type="submit">Delete</button>
+    using (Html.BeginForm(actionName: "Edit", controllerName: "Product", method: FormMethod.Get, routeValues: new { id = Model.ProductId }))
+    {
+        <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Update</button>
+
+    }
+    using (Html.BeginForm(actionName: "Delete", controllerName: "Product", method: FormMethod.Post, routeValues: new { id = Model.ProductId }))
+    {
+        @Html.HttpMethodOverride(HttpVerbs.Delete)
+        <button class="btn btn-primary col-lg-1" type="submit">Delete</button>
+    }
 }
 <br />
+<br />
 
+@using (Html.BeginForm(actionName: "Index", controllerName: "Product", method: FormMethod.Get))
+{
+    <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Back</button>
+}
 
