@@ -90,19 +90,20 @@ namespace ZooShop.Controllers
         [HttpPut]
         public ActionResult Edit(int id, Distributor distributorRequest)
         {
-            Distributor distributor =
-                         db.Distributors.Include("ContactInfo").SingleOrDefault(p => p.DistributorId == id);
+            //Distributor distributor =db.Distributors.Include("ContactInfo").SingleOrDefault(p => p.DistributorId == id);
 
             try
             {
                 if (ModelState.IsValid)
                 {
+                    Distributor distributor = db.Distributors.Include("ContactInfo").SingleOrDefault(p => p.DistributorId == id);
+                    ContactInfo contactInfo = db.ContactInfos.SingleOrDefault(c => c.ContactInfoId == distributor.ContactInfo.ContactInfoId);
 
                     if (TryUpdateModel(distributor))
                     {
-                        
+                        contactInfo.PhoneNumber = distributorRequest.ContactInfo.PhoneNumber;
+                        contactInfo.Email = distributorRequest.ContactInfo.Email;
                         distributor.DistributorName = distributorRequest.DistributorName;
-                        distributor.ContactInfo = distributorRequest.ContactInfo;
                         db.SaveChanges();
                     }
                     return RedirectToAction("Index");
@@ -111,6 +112,7 @@ namespace ZooShop.Controllers
             }
             catch (Exception e)
             {
+   
                 return HttpNotFound("Intra pe exceptie");
             }
         }

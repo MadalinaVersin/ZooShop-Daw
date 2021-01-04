@@ -31,6 +31,7 @@ namespace ZooShop.Controllers
             }
             return HttpNotFound("Missing product id parameter!");
         }
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult New()
         {

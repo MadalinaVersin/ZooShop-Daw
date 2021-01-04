@@ -16,9 +16,8 @@
 
     @Html.Label("Email", "Email:")
     <br />
-    @Html.TextBoxFor(c => c.Email, null, new { placeholder = "Type in the Email", @class = "form-control" })
+    @Html.TextBoxFor(c => c.Email, null, new { placeholder = "Type in the phone number", @class = "form-control" })
     @Html.ValidationMessageFor(c => c.Email, "", new { @class = "text-danger" })
-
     <button class="btn btn-primary" type="submit">Add</button>
 }
 

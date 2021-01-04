@@ -19,9 +19,9 @@
     @Html.ValidationMessageFor(d => d.PhoneNumber, "", new { @class = "text-danger" })
     <br />
     <br />
-    @Html.Label("Email", "Email")
+    @Html.LabelFor(d => d.Email, "Email")
     <br />
-    @Html.TextBoxFor(d => d.Email, null, new { placeholder = "Type in the distributor's email.", @class = "form-control" })
+    @Html.TextBoxFor(d => d.Email, null, new { placeholder = "Type in the distributor's phone number", @class = "form-control" })
     @Html.ValidationMessageFor(d => d.Email, "", new { @class = "text-danger" })
     <br />
     <br />

@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ZooShop.Models.MyValidation;
 
 namespace ZooShop.Models
 {
@@ -16,8 +17,10 @@ namespace ZooShop.Models
         [MinLength(2, ErrorMessage = "Name cannot be less than 2!"),
            MaxLength(200, ErrorMessage = "Name cannot be more than 200!")]
         public string Name { get; set; }
-
+        [GenderValidator]
         public string Gender { get; set; }
+
+        [Range(0, int.MaxValue, ErrorMessage = "Please enter valid positive number!")]
         public int Price { get; set; }
 
         [MinLength(0, ErrorMessage = "Summary cannot be less than 0!"),
@@ -25,7 +28,7 @@ namespace ZooShop.Models
         public string Details { get; set; }
 
         //Image
-        [DisplayName("Upload File")]
+        [DisplayName("Upload a image!")]
         public string ImagePath { get; set; }
 
         [NotMapped]
@@ -47,4 +50,5 @@ namespace ZooShop.Models
         public List<CheckBoxViewModel> VaccineList { get; set; }
 
     }
+  
 }

@@ -1,0 +1,26 @@
+﻿@model ZooShop.Models.ContactInfo
+@{
+    ViewBag.Title = "Edit ContactInfo";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@using (Html.BeginForm(actionName: "Edit", controllerName: "ContactInfo", method: FormMethod.Post))
+{
+    @Html.HttpMethodOverride(HttpVerbs.Put)
+
+    @Html.HiddenFor(c => c.ContactInfoId)
+    <br />
+    @Html.Label("PhoneNumber", "PhoneNumber: ")
+    <br />
+    @Html.EditorFor(c => c.PhoneNumber, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(d => d.PhoneNumber, "", new { @class = "text-danger" })
+    <br />
+    @Html.LabelFor(c => c.Email, "Email: ")
+    <br />
+    @Html.EditorFor(c => c.Email, new { htmlAttributes = new { @class = "form-control" } })
+    @Html.ValidationMessageFor(c => c.Email, "", new { @class = "text-danger" })
+    <br />
+    <button class="btn btn-primary" type="submit">Update</button>
+
+}

@@ -15,13 +15,16 @@ namespace ZooShop.Models
         [MinLength(2, ErrorMessage = "Name cannot be less than 2!"),
             MaxLength(200, ErrorMessage = "Name cannot be more than 200!")]
         public string Name { get; set; }
+        
         [MinLength(2, ErrorMessage = "Details cannot be less than 2!"),
         MaxLength(5000, ErrorMessage = "Details cannot be more than 5000!")]
         public string Details { get; set; }
+
+        [Range(0, int.MaxValue, ErrorMessage = "Please enter valid positive number!")]
         public int Price { get; set; }
 
         //Image
-        [DisplayName("Upload File")]
+        [DisplayName("Upload a image.")]
         public string ImagePath { get; set; }
 
         [NotMapped]

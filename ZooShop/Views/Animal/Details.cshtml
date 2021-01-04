@@ -5,7 +5,11 @@
 }
 
 <h2>@Model.Name</h2>
-<img src="@Url.Content(Model.ImagePath)" alt="Sample Image" width="200px" height="250" />
+<img src="@Url.Content(Model.ImagePath)" alt="Sample Image" width="250" height="250" />
+<br />
+@Html.Label("Gender", "Gender : ")
+<br />
+<p>@Model.Gender</p>
 <br />
 @Html.Label("Price", "Price : ")
 <br />
@@ -50,13 +54,16 @@
     <br />
 }
 
-@using (Html.BeginForm(actionName: "Edit", controllerName: "Animal", method: FormMethod.Get, routeValues: new { id = Model.AnimalId }))
+@if (User.IsInRole("Admin"))
 {
-    <button style="margin-right: 5px" class="btn btn-primary col-lg-1" type="submit"> Update</button>
-}
+    using (Html.BeginForm(actionName: "Edit", controllerName: "Animal", method: FormMethod.Get, routeValues: new { id = Model.AnimalId }))
+    {
+        <button style="margin-right: 5px" class="btn btn-primary col-lg-1" type="submit"> Update</button>
+    }
 
-@using (Html.BeginForm(actionName: "Delete", controllerName: "Animal", method: FormMethod.Post, routeValues: new { id = Model.AnimalId }))
-{
-    @Html.HttpMethodOverride(HttpVerbs.Delete)
-    <button class="btn btn-primary col-lg-1" type="submit">Delete</button>
+    using (Html.BeginForm(actionName: "Delete", controllerName: "Animal", method: FormMethod.Post, routeValues: new { id = Model.AnimalId }))
+    {
+        @Html.HttpMethodOverride(HttpVerbs.Delete)
+        <button class="btn btn-primary col-lg-1" type="submit">Delete</button>
+    }
 }

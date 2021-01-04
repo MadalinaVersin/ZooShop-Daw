@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using ZooShop.Models.MyValidation;
 
 namespace ZooShop.Models
 {
@@ -14,6 +15,7 @@ namespace ZooShop.Models
 
         [RegularExpression(@"^07(\d{8})$", ErrorMessage = "This is not a valid phone number!")]
         public string PhoneNumber { get; set; }
+        [EmailValidation]
         public string Email { get; set; }
     }
 }

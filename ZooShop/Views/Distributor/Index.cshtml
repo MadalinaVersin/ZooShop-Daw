@@ -19,9 +19,15 @@
                 <td>@distributor.DistributorName</td>
                 <td>@distributor.ContactInfo.PhoneNumber</td>
                 <td>@Html.ActionLink("Update", "Edit", new { id = distributor.DistributorId })</td>
-                <td>@Html.ActionLink("View More", "Details", new { id = distributor.DistributorId })</td>
+                <td>@Html.ActionLink("ContactInfo", "Index", "ContactInfo", new { id = distributor.DistributorId }, null)</td>
+                <td>
+                    @using (Html.BeginForm(actionName: "Delete", controllerName: "Distributor", method: FormMethod.Post, routeValues: new { id = distributor.DistributorId }))
+                    {
+                        @Html.HttpMethodOverride(HttpVerbs.Delete)
+                        <button style="margin-right:5px" class="btn btn-primary col-lg-4" type="submit">Delete</button>
+                    }
+                </td>
             </tr>
         }
     </tbody>
 </table>
-@Html.ActionLink("Add distributor", "New")

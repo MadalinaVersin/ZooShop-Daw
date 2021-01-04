@@ -18,7 +18,7 @@ namespace ZooShop.Controllers
             ViewBag.Animals = animals;
             return View();
         }
-
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id.HasValue)
@@ -33,6 +33,7 @@ namespace ZooShop.Controllers
             return HttpNotFound("Missing animal id parameter!");
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult New()
         {
@@ -79,6 +80,7 @@ namespace ZooShop.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public ActionResult Edit(int? id)
         {
@@ -143,7 +145,7 @@ namespace ZooShop.Controllers
                 return View(animalRequest);
             }
         }
-
+        [Authorize(Roles = "Admin")]
         [HttpDelete]
         public ActionResult Delete(int id)
         {
@@ -190,9 +192,6 @@ namespace ZooShop.Controllers
             }
             return selectList;
         }
-
-
-
 
     }
 }

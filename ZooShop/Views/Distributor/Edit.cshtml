@@ -7,10 +7,9 @@
 
 @using (Html.BeginForm(actionName: "Edit", controllerName: "Distributor", method: FormMethod.Post))
 {
-            @Html.HttpMethodOverride(HttpVerbs.Put)
+    @Html.HttpMethodOverride(HttpVerbs.Put)
 
     @Html.HiddenFor(d => d.DistributorId)
-    @Html.HiddenFor(d => d.ContactInfo)
     <br />
     @Html.Label("DistributorName", "DistributorName: ")
     <br />

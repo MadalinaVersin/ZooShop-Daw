@@ -1,0 +1,27 @@
+﻿@model ZooShop.Models.ContactInfo
+@{
+    ViewBag.Title = "Contact Info";
+}
+
+<h2>@Model.Distributor.DistributorName</h2>
+<br />
+@Html.LabelFor(c => c.PhoneNumber, "Phone Number:")
+<p>@Model.PhoneNumber</p>
+<br />
+@Html.LabelFor(c => c.Email, "Email: ")
+<p>@Model.Email</p>
+<br />
+@using (Html.BeginForm(actionName: "Index", controllerName: "Distributor", method: FormMethod.Get))
+{
+    <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Back</button>
+}
+@using (Html.BeginForm(actionName: "Edit", controllerName: "ContactInfo", method: FormMethod.Get, routeValues: new { id = Model.ContactInfoId}))
+{
+    <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Update</button>
+}
+@using (Html.BeginForm(actionName: "Delete", controllerName: "ContactInfo", method: FormMethod.Post, routeValues: new { id = Model.ContactInfoId }))
+{
+    @Html.HttpMethodOverride(HttpVerbs.Delete)
+    <button style="margin-right:5px" class="btn btn-primary col-lg-1" type="submit">Delete</button>
+}
+
