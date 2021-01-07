@@ -111,3 +111,10 @@ C:\Users\Madalina Versin\Desktop\Project-Daw\ZooShop\ZooShop\obj\Debug\ZooShop.c
 C:\Users\Madalina Versin\Desktop\Project-Daw\ZooShop\ZooShop\obj\Debug\ZooShop.Migrations.AddImageToAnimal.resources
 C:\Users\Madalina Versin\Desktop\Project-Daw\ZooShop\ZooShop\obj\Debug\ZooShop.Migrations.AddProductDistributorContactInfo.resources
 C:\Users\Madalina Versin\Desktop\Project-Daw\ZooShop\ZooShop\obj\Debug\ZooShop.Migrations.DeleteReq.resources
+C:\Users\Madalina Versin\Desktop\Project-Daw\ZooShop\ZooShop\obj\Debug\ZooShop.Migrations.addRequired.resources
+C:\Users\Madalina Versin\Desktop\Project-Daw\ZooShop\ZooShop\obj\Debug\ZooShop.Migrations.AddReqContact.resources
+C:\Users\Madalina Versin\Desktop\Project-Daw\ZooShop\ZooShop\obj\Debug\ZooShop.Migrations.AddReqDisContact.resources
+C:\Users\Madalina Versin\Desktop\Project-Daw\ZooShop\ZooShop\obj\Debug\ZooShop.Migrations.AddReqDistributor.resources
+C:\Users\Madalina Versin\Desktop\Project-Daw\ZooShop\ZooShop\obj\Debug\ZooShop.Migrations.AddReqVaccine.resources
+C:\Users\Madalina Versin\Desktop\Project-Daw\ZooShop\ZooShop\obj\Debug\ZooShop.Migrations.AddReqProduct.resources
+C:\Users\Madalina Versin\Desktop\Project-Daw\ZooShop\ZooShop\obj\Debug\ZooShop.Migrations.AddReqAnimal.resources

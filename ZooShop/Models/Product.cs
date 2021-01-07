@@ -13,6 +13,7 @@ namespace ZooShop.Models
     {
         public int ProductId { get; set; }
 
+        [Required]
         [MinLength(2, ErrorMessage = "Name cannot be less than 2!"),
             MaxLength(200, ErrorMessage = "Name cannot be more than 200!")]
         public string Name { get; set; }
@@ -21,6 +22,7 @@ namespace ZooShop.Models
         MaxLength(5000, ErrorMessage = "Details cannot be more than 5000!")]
         public string Details { get; set; }
 
+        [Required]
         [Range(0, int.MaxValue, ErrorMessage = "Please enter valid positive number!")]
         public int Price { get; set; }
 

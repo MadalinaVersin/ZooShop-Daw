@@ -11,10 +11,12 @@ namespace ZooShop.Models
     {
         public int ContactInfoId { set; get; }
 
+        [Required]
         [RegularExpression(@"\A(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\Z",
         ErrorMessage = "Please enter correct email address")]
         public String Email { get; set; }
        
+        [Required]
         [RegularExpression(@"^07(\d{8})$", ErrorMessage = "This is not a valid phone number!")]
         public String PhoneNumber { get; set; }
 

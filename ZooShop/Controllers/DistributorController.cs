@@ -112,12 +112,12 @@ namespace ZooShop.Controllers
                     }
                     return RedirectToAction("Index");
                 }
-                return HttpNotFound("Nu este valid");
+                return View(distributorRequest);
             }
             catch (Exception e)
             {
-   
-                return HttpNotFound("Intra pe exceptie");
+
+                return View(distributorRequest);
             }
         }
 

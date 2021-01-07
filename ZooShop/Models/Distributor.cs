@@ -10,6 +10,7 @@ namespace ZooShop.Models
     {
         public int DistributorId { get; set; }
         
+        [Required]
         [MinLength(2, ErrorMessage = "Distributor Name cannot be less than 2!"),
            MaxLength(200, ErrorMessage = "Distributor Name cannot be more than 200!")]
         public string DistributorName { get; set; }

@@ -10,10 +10,12 @@ namespace ZooShop.Models
     {
         public int VaccineId { get; set; }
 
+        [Required]
         [MinLength(3, ErrorMessage = "Vaccine name cannot be less than 3!"),
             MaxLength(30, ErrorMessage = "Vaccine name cannot be more than 30!")]
         public string Name { get; set; }
-
+        
+        [Required]
         [Range(0, int.MaxValue, ErrorMessage = "Please enter valid positive number!")]
         public int Price { get; set; }
 

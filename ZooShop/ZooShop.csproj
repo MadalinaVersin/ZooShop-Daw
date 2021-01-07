@@ -196,6 +196,34 @@
     <Compile Include="Migrations\202101041334495_DeleteReq.Designer.cs">
       <DependentUpon>202101041334495_DeleteReq.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202101071330570_addRequired.cs" />
+    <Compile Include="Migrations\202101071330570_addRequired.Designer.cs">
+      <DependentUpon>202101071330570_addRequired.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101071341341_AddReqContact.cs" />
+    <Compile Include="Migrations\202101071341341_AddReqContact.Designer.cs">
+      <DependentUpon>202101071341341_AddReqContact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101071344137_AddReqDisContact.cs" />
+    <Compile Include="Migrations\202101071344137_AddReqDisContact.Designer.cs">
+      <DependentUpon>202101071344137_AddReqDisContact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101071350283_AddReqDistributor.cs" />
+    <Compile Include="Migrations\202101071350283_AddReqDistributor.Designer.cs">
+      <DependentUpon>202101071350283_AddReqDistributor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101071356416_AddReqVaccine.cs" />
+    <Compile Include="Migrations\202101071356416_AddReqVaccine.Designer.cs">
+      <DependentUpon>202101071356416_AddReqVaccine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101071359127_AddReqProduct.cs" />
+    <Compile Include="Migrations\202101071359127_AddReqProduct.Designer.cs">
+      <DependentUpon>202101071359127_AddReqProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101071410464_AddReqAnimal.cs" />
+    <Compile Include="Migrations\202101071410464_AddReqAnimal.Designer.cs">
+      <DependentUpon>202101071410464_AddReqAnimal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Animal.cs" />
@@ -328,6 +356,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202101041334495_DeleteReq.resx">
       <DependentUpon>202101041334495_DeleteReq.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101071330570_addRequired.resx">
+      <DependentUpon>202101071330570_addRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101071341341_AddReqContact.resx">
+      <DependentUpon>202101071341341_AddReqContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101071344137_AddReqDisContact.resx">
+      <DependentUpon>202101071344137_AddReqDisContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101071350283_AddReqDistributor.resx">
+      <DependentUpon>202101071350283_AddReqDistributor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101071356416_AddReqVaccine.resx">
+      <DependentUpon>202101071356416_AddReqVaccine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101071359127_AddReqProduct.resx">
+      <DependentUpon>202101071359127_AddReqProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101071410464_AddReqAnimal.resx">
+      <DependentUpon>202101071410464_AddReqAnimal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
